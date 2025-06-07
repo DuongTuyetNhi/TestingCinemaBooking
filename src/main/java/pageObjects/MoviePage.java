@@ -8,4 +8,9 @@ public class MoviePage extends  BasePage{
         By element = By.xpath(String.format(xpathLink, "Sửa"));
         DriverManagement.click(element);
     }
+
+    public void clickDeleteMovieButton(){
+        By element = By.xpath(String.format(xpathLink, "Xóa"));
+        DriverManagement.click(element);
+    }
 }

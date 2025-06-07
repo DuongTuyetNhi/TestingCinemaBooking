@@ -9,7 +9,8 @@ import pageObjects.*;
 import static base.DriverManagement.getDriver;
 
 public class BaseTest {
-    ConfigExcelReader excelReader;
+    protected ConfigExcelReader excelReader;
+
     @BeforeMethod
     @Parameters({"browser", "runMode"})
     public synchronized void beforeMethod(@Optional("chrome") String browser, @Optional("local") String runMode) throws Throwable {
@@ -19,6 +20,7 @@ public class BaseTest {
         DriverManagement.initDriver();
         excelReader = new ConfigExcelReader();
     }
+
     public void setExcelFile(String filePath, String sheetName) throws Exception {
         excelReader.setExcelFile(filePath, sheetName);
     }

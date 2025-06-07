@@ -250,8 +250,6 @@ public class ConfigExcelReader {
     }
 
     public Movie getMovieFromExcel(int rowNum) throws Exception {
-        setExcelFile("src/test/java/resource/Data.xlsx","ThemPhim");
-
         Movie movie = new Movie();
         movie.setMovieName(getCellData("movieName", rowNum));
         movie.setPhotoPath(getCellData("photo", rowNum));
@@ -263,8 +261,6 @@ public class ConfigExcelReader {
         movie.setActor(getCellData("actor", rowNum));
         movie.setTrailer(getCellData("trailer", rowNum));
         movie.setDescribeMovie(getCellData("describeMovie", rowNum));
-
         return movie;
     }
-
 }

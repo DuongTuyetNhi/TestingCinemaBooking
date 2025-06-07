@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.v135.filesystem.model.File;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -40,6 +43,9 @@ public class DriverManagement {
                     case "firefox":
                         driver.set(new FirefoxDriver());
                         break;
+                    case "edge":
+                        driver.set(new EdgeDriver());
+                        break;
                     default:
                         driver.set(new ChromeDriver());
                         break;
@@ -55,6 +61,10 @@ public class DriverManagement {
                     case "firefox":
                         FirefoxOptions firefoxOptions = new FirefoxOptions();
                         driver.set(new RemoteWebDriver(new URL(remoteUrl), firefoxOptions));
+                        break;
+                    case "edge":
+                        EdgeOptions edgeOptions = new EdgeOptions();
+                        driver.set(new RemoteWebDriver(new URL(remoteUrl), edgeOptions));
                         break;
                     default:
                         ChromeOptions defaultOptions = new ChromeOptions();
@@ -178,4 +188,33 @@ public class DriverManagement {
         System.out.println("Switched to window: " + windowHandle);
     }
 
+    public static void uploadImage(String imagePath) {
+        WebElement imageInput = getDriver().findElement(By.id("photo"));
+        imageInput.sendKeys(new java.io.File(imagePath).getAbsolutePath());
+    }
+
+    public static String getAlertText() {
+        try {
+            return getDriver().switchTo().alert().getText();
+        } catch (Exception e) {
+            System.out.println("No have any alert");
+            return null;
+        }
+    }
+
+    public static void acceptAlert() {
+        try {
+            getDriver().switchTo().alert().accept();
+        } catch (Exception e) {
+            System.out.println("No have any alert");
+        }
+    }
+
+    public static void dismissAlert() {
+        try {
+            getDriver().switchTo().alert().dismiss();
+        } catch (Exception e) {
+            System.out.println("No have any alert");
+        }
+    }
 }

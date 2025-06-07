@@ -1,23 +1,41 @@
-
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Cinema" verbose="1" parallel="tests" thread-count="2">
+<suite name="Cinema" verbose="1" parallel="tests" thread-count="3">
     <listeners>
         <listener class-name="TestListener"></listener>
     </listeners>
 
-    <test name="Firefox test">
-        <parameter name="browser" value="firefox"/>
-        <!--        <parameter name="runMode" value="grid"/>-->
-        <classes>
-            <class name="LoginTest"></class>
-        </classes>
-    </test>
+<!--    <test name="Chrome test">-->
+<!--        <parameter name="browser" value="chrome"/>-->
+<!--        &lt;!&ndash;        <parameter name="runMode" value="grid"/>&ndash;&gt;-->
+<!--        <classes>-->
+<!--            <class name="CreateMovieTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Chrome test">
+<!--    <test name="Firefox test">-->
+<!--        <parameter name="browser" value="firefox"/>-->
+<!--        &lt;!&ndash;        <parameter name="runMode" value="grid"/>&ndash;&gt;-->
+<!--        <classes>-->
+<!--            <class name="DeleteMovieTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="Edge test">-->
+<!--        <parameter name="browser" value="edge"/>-->
+<!--        &lt;!&ndash;        <parameter name="runMode" value="grid"/>&ndash;&gt;-->
+<!--        <classes>-->
+<!--            <class name="UpdateMovieTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="All Tests">
         <parameter name="browser" value="chrome"/>
-        <!--        <parameter name="runMode" value="grid"/>-->
         <classes>
-            <class name="LoginTest"/>
+<!--            <class name="LoginTest"/>-->
+<!--            <class name="LogoutTest"/>-->
+<!--            <class name="RegisterTest"/>-->
+<!--            <class name="CreateMovieTest"/>-->
+            <class name="UpdateMovieTest"/>
+<!--            <class name="DeleteMovieTest"/>-->
         </classes>
     </test>
 </suite>

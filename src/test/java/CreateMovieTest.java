@@ -83,7 +83,9 @@ public class CreateMovieTest extends BaseTest{
         createMoviePage.clickSaveButton();
 
         String actualMessage = movieListPage.getMessageSuccess();
+        System.out.println(actualMessage);
         String expectedMessage = MessageConstants.MESSAGE_ADD_SUCCESS;
+        System.out.println(expectedMessage);
         Assert.assertEquals(actualMessage, expectedMessage, "Message error is not match");
     }
 
@@ -299,7 +301,7 @@ public class CreateMovieTest extends BaseTest{
         createMoviePage.clickSaveButton();
 
         String actualMessage = createMoviePage.getErrorTimeSlotMessage();
-        String expectedMessage = MessageConstants.MESSAGE_REQUIRED_FIELD;
+        String expectedMessage = MessageConstants.INVALID_TIMESLOT;
         Assert.assertEquals(actualMessage, expectedMessage, "Message error is not match");
     }
 

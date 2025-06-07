@@ -12,4 +12,5 @@ public class MessageConstants {
     public static final String MESSAGE_UPDATE_SUCCESS = "Thêm phim thành công!";
     public static final String INVALID_TIMESLOT = "Vui lòng nhập thời lượng hợp lệ (hh:mm:ss), tối đa 04:00:00";
     public static final String TITLE_HOMEPAGE = "DoubleT";
+    public static final String TITLE_LIST_MOVIE = "Danh sách phim";
 }
